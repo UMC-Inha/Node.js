@@ -2,7 +2,7 @@
 
 ### 홈 화면
 1.  홈 화면 보여주기
-       -   API Endpoint :
+       - API Endpoint :
         ```
         GET http://umc.com/home
         ```
@@ -11,7 +11,7 @@
         Bearer Token
         ```
 2. 미션 도전
-      -   API Endpoint :
+      - API Endpoint :
        ```
        POST http://umc.com/missions/{mission-id} 
        ```
@@ -29,7 +29,7 @@
 
 ### 마이페이지 리뷰 작성
 1. 리뷰 작성하기
-      -   API Endpoint :
+      - API Endpoint :
        ```
        POST http://umc.com/users/reviews 
        ```
@@ -51,7 +51,7 @@
        content-type : Application/json
        ```
 2. 내가 작성한 리뷰
-      -   API Endpoint :
+      - API Endpoint :
        ```
        GET http://umc.com/users/reviews 
        ```
@@ -64,7 +64,7 @@
 
 ### 미션 목록 조회
 1. 진행 중인 미션 조회
-      -   API Endpoint :
+      - API Endpoint :
        ```
        GET http://umc.com/users/missions
        ```
@@ -77,7 +77,7 @@
        Bearer Token
        ```
 2. 완료된 미션 조회
-      -   API Endpoint :
+      - API Endpoint :
        ```
        GET http://umc.com/users/missions
        ```
@@ -93,10 +93,16 @@
 ---
 ### 미션 성공 누르기
 1. 미션 성공
-      -   API Endpoint :
+      - API Endpoint :
        ```
-       PATCH http://umc.com/users/missions/{mission-id}/success
+       PATCH http://umc.com/users/missions/{mission-id}
        ```
+      - Request body :
+        ```
+        {
+           "status" : "2"
+        }
+        ```
       - Path variable :
        ```
        mission-id
@@ -108,7 +114,7 @@
 ---
 ### 회원가입
 1. 회원가입
-      -   API Endpoint :
+      - API Endpoint :
        ```
        POST http://umc.com/users
        ```
