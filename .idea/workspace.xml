@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7777b018-a5f4-4c82-b9cc-e99da6079fb3" name="Changes" comment="" />
+    <list default="true" id="7777b018-a5f4-4c82-b9cc-e99da6079fb3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ceb01c00-526d-4956-8836-e10d6248430e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ceb01c00-526d-4956-8836-e10d6248430e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,16 +16,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2mWhAZGyDrUkDMVixN92NWRUkBk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/jijon"
+    "last_opened_file_path": "C:/Users/jijon/Desktop/UMC/UMC-7/mission/Node.js/mission/nodejs_project/ddl-query/맛집미션.sql",
+    "settings.editor.selected.configurable": "database.query.execution"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
