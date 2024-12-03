@@ -7,6 +7,8 @@
 ### ES6(ES2015+)
 
 #### ES5에서 ES6로의 주요 변화점
+<br>
+
 **1. const, let**
    - 자바스크립트에서는 var로 변수를 선언하였지만 ES6에서 var대신 const, let을 사용하도록 하였다. 
 
@@ -33,6 +35,8 @@
 
   따라서 const는 다른 값으로 재할당이 되지 않을 때만 사용하면되고 나머지 재할당이 필요해진다면 let을 사용하면 된다.
 
+<br>
+
 **2. 템플릿 문자열(리터럴)**
 
 - '내용', "내용" 다음과 같이 문자열은 작은 따옴표와 큰 따옴표로 나타내었는데 따옴표 뿐만아니라 `(백틱) 이라는 걸 감싸는 형태도 문자열을 표현할 수 있다.
@@ -45,6 +49,7 @@
   ```
   위 코드처럼 백틱안에 ${변수명} 이렇게 변수를 문자열 안에 넣을 수 있다.
 
+<br>
 
 **3. 객체 리터럴**
   - 객체의 메서드에 함수를 연결할 때 :(콜론) 과 function을 붙이지 않아도 되도록 했습니다.
@@ -81,6 +86,8 @@
     // 이전문법
     oldObject[es+6] = 'fantastic'
     ```
+
+<br>
 
 **4. 화살표 함수**
   - 기존의 function도 사용이 가능하고 =>를 통해 화살표 함수를 만들수 있습니다.
@@ -134,9 +141,181 @@
     relationship1.logFriends();
 
     ```
+
 <br>
 
-**5. ES Module**
+**5. 구조 분해 할당**
+
+  - 예시 1
+
+    ```
+    const candyMachine = {
+      status: {
+        name: 'node',
+        count: 5,
+      },
+      getCandy() {
+        this.status.count--;
+        return this.status.count;
+      },
+    };
+    
+    // 아래가 구조분해할당 방법
+    const { getCandy , status: {count} } = candyMachine;
+    ```
+  
+  - 예시 2
+
+    ```
+    export const bodyToUser = (body) => {
+      // 아래 코드가 구조분해할당
+      const {email, name, gender, address} = body;
+
+      return {
+        email: email,
+        name: name,
+        gender: gender,
+        address: address,
+      };
+    };
+    ```
+
+<br>
+
+**6. 프로미스**
+
+  - 자바스크립트나 노드는 비동기를 자주 접하는데, 이벤트 리스너를 사용시 콜백함수를 자주 사용한다.
+
+  - 하지만 ES2015부터 자바스크립트와 노드의 API들이 콜백 대신 프로미스(Promise)기반으로 재구성 되었고, 이덕분에 콜백 지옥 현상을 극복할 수 있게 되었다.
+
+  - 프로미스 사용법
+    ```
+    const condition = true; // true이면 resolve, false이면 reject
+    // 아래가 promise 사용법
+    const promise = new Promise((resolve, reject) => {
+      if (condition) {
+        resolve('성공');
+      } else {
+        reject('실패');
+      }
+    });
+    // 위 코드가 프로미스 객체를 생성하고 그안에 시간이 다소 걸리는 I/O를 다루는 코드나 함수를 실행하는 코드를 넣고 성공 한 결과를 resolve에 넣고 실패하면 그 결과를 reject에 넣게 된다.
+
+    // 다른코드 실행
+
+    promise
+      .then((message) => {
+        console.log(message);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {  // 무조건 실행
+        console.log('무조건');
+      });
+    
+    //위 생성한 프로미스 객체에서의 결과를 다른 코드가 실행하고 나중에 받을 수 있도록 한 것이 promise의 특징입니다.
+    ```
+
+  - 프로미스는 then이나 catch에서 또 다른 then을 붙일 수도 있습니다.
+
+    ```
+    promise
+      .then((message) => {
+        return new Promise((resolve, reject) => {
+          resolve(message);
+        });
+      })
+      .then((message2) => {
+        console.log(message2);
+        return new Promise((resolve, reject) => {
+          resolve(message2);
+        });
+      })
+      .then((message3) => {
+        console.log(message3);
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+    ```
+
+  - 위 코드 처럼 첫번째 then의 결과로 새로운 프로미스 객체를 리턴해주면 그 객체를 then으로 또받아 잇는 형식으로 만들어지며 위 방식을 활용해서 여러 콜백을 병렬적으로 연결할 수 있습니다.
+
+  - 콜백함수를 프로미스로 바꿀 수 있다고 했는데 아래 코드가 그 예시 입니다.
+
+    ```
+    function findAndSaveUser(Users) {
+      Users.findOne({}, (err,user) => { // 첫번째 콜백
+        if(err){
+          return console.log(err);
+        }
+        user.name = 'zero';
+        user.save((err) => {  // 두번째 콜백
+          if(err) {
+            return console.error(err);
+          }
+          Users.findOne({gender: 'm'}, (err, user) => { // 세번째 콜백
+            // 생략
+          });
+        });
+      });
+    }
+    ```
+  
+  - 위 코드는 콜백함수가 3번 중첩되어있고 콜백함수가 나올 때마다 코드의 깊이가 더 깊어진다. 이를 프로미스로 사용하면 다음과 같다.
+
+    ```
+    function findAndSaveUser(Users) {
+      Users.findOne({})
+        .then((user) => {
+          user.name = 'zero';
+          return user.save();
+        })
+        .then((user) => {
+          return Users.findOne({gender: 'm'});
+        })
+        .then((user) => {
+          // 생략
+        })
+
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+    ```
+
+  - 아까 콜백함수의 깊어짐보다 덜 깊게 코드가 짜여진걸 볼수 있다. 그리고 위 경우는 findOne 이라는 함수와 save 함수내에 promise 객체를 갖고있다고 가정해야한다.
+
+  - 프로미스는 위처럼 꼬리를 무는 방식으로 여러개 처리하는 기법말고도 한꺼번에 여러개의 프로미스를 처리하는 방식도 존재합니다.
+
+    ```
+    const promise1 = Promise.resolve('성공1);
+    const promise2 = Promise.resolve('성공2');
+    Promise.all([promise1, promise2])
+      .then((result) => {
+        console.log(result); // ['성공1', '성공2']
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    ```
+  - Promise.all을 사용하면 프로미스들을 한꺼번에 처리하고 에러처리도 한꺼번에 해준다
+  - 위 코드에서 promise1과 promise2 모두가 성공하면 then으로 가게되고 둘중에 하나라도 에러가 발생하면 catch문이 실행된다. 그러나 둘중 어떤 프로미스가 reject 되었는지는 알 수 없다.
+
+  - 만약 여러 프로미스를 실행하는데 어떤 프로미스에서 에러가 발생했는지를 알고싶다면 Promise.all 대신에 Promise.allSettled를 사용하면 된다.
+
+  - 추가로 Node 16버전부터 reject된 Promise에 catch를 달지 않으면 UnhandledPromiseRejection 에러가 발생하므로 프로미스에 catch 메서드를 붙이는 것을 권장한다.
+
+
+
+
+
+
+<br>
+
+**7. ES Module**
 
   - Module이란 다른 자바스크립트 파일에서 선언된 함수나 객체를 현재의 자바스크립트파일에서 재사용하기 위한 방식을 말한다.
 
@@ -156,6 +335,8 @@
     ```
 
 <br>
+
+
 
 #### ES6가 중요한 이유
    - 기존 문법에서 많은 획기적인 새로운 요소들이 추가가 되었고 현대 웹 애플리케이션 개발의 다양한 영역에서 활용될 뿐 아니라 빠르게 개발을 할 수 있도록 가독성과 유지 보수성 측면에서 다른 버전들 보다 많은 향상이 이뤄 졌기 때문이다.
