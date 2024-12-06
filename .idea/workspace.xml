@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7777b018-a5f4-4c82-b9cc-e99da6079fb3" name="Changes" comment="" />
+    <list default="true" id="7777b018-a5f4-4c82-b9cc-e99da6079fb3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ceb01c00-526d-4956-8836-e10d6248430e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ceb01c00-526d-4956-8836-e10d6248430e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMC-7th-Nodejs/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UMC-7th-Nodejs/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMC-7th-Nodejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UMC-7th-Nodejs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMC-7th-Nodejs/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/../UMC-7th-Nodejs/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UMC-7th-Nodejs/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UMC-7th-Nodejs/src/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,19 +28,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/mission-08",
-    "last_opened_file_path": "C:/Users/jijon/Desktop/UMC/UMC-7/mission/UMC-7th-Nodejs/ddl-query/맛집미션.sql",
-    "settings.editor.selected.configurable": "database.query.execution"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/mission-09&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jijon/Desktop/UMC/UMC-7/mission/UMC-7th-Nodejs/ddl-query/맛집미션.sql&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 </project>
